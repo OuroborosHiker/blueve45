@@ -1,0 +1,15 @@
+---
+import Navbar from "../components/navbar.astro"
+import "../styles/base.css"
+import HeaderHead from "../components/headerHead.astro";
+---
+<html lang="en">
+  <head>
+    <HeaderHead title="Astro" description="Astro" />
+  </head>
+  <body class="bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 flex flex-col min-h-screen items-center m-4 max-w-[1920px] mx-auto">
+    <Navbar />
+    <slot />
+  </body>
+</html>
+

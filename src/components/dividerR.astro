@@ -1,0 +1,65 @@
+---
+import "../styles/base.css"
+---
+
+    <div class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden -mt-1">
+    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- Animated Gradient -->
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1">
+                    <animate attributeName="offset" values="0%;0.15%;0%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#667eea;#764ba2;#667eea" dur="10s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="20%" style="stop-color:#764ba2;stop-opacity:1">
+                    <animate attributeName="offset" values="0.2%;0.35%;0.2%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#764ba2;#f093fb;#764ba2" dur="10s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="40%" style="stop-color:#f093fb;stop-opacity:1">
+                    <animate attributeName="offset" values="0.4%;0.55%;0.4%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#f093fb;#ff6b9d;#f093fb" dur="10s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="60%" style="stop-color:#ff6b9d;stop-opacity:1">
+                    <animate attributeName="offset" values="0.6%;0.75%;0.6%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#ff6b9d;#feca57;#ff6b9d" dur="10s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="80%" style="stop-color:#feca57;stop-opacity:1">
+                    <animate attributeName="offset" values="0.8%;0.95%;0.8%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#feca57;#48dbfb;#feca57" dur="10s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="100%" style="stop-color:#48dbfb;stop-opacity:1">
+                    <animate attributeName="offset" values="1%;1.15%;1%" dur="7s" repeatCount="indefinite" />
+                    <animate attributeName="stop-color" values="#48dbfb;#667eea;#48dbfb" dur="10s" repeatCount="indefinite" />
+                </stop>
+            </linearGradient>
+            
+            <!-- Opacity Fade Mask -->
+            <linearGradient id="fadeMask" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
+                <stop offset="12%" style="stop-color:#ffffff;stop-opacity:0.5" />
+                <stop offset="20%" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="80%" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="88%" style="stop-color:#ffffff;stop-opacity:0.5" />
+                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+            </linearGradient>
+            
+            <mask id="opacityMask">
+                <rect width="1200" height="240" fill="url(#fadeMask)" />
+            </mask>
+        </defs>
+        
+        <!-- Path 100% más grande (doble altura) -->
+        <path 
+            fill="url(#waveGradient)" 
+            mask="url(#opacityMask)"
+            d="M0,20 C150,120 300,10 450,70 C600,130 750,30 900,80 C1050,130 1150,50 1200,30 L1200,220 C1050,120 900,230 750,176 C600,116 450,216 300,164 C150,110 50,190 0,216 Z">
+            <animate 
+                attributeName="d" 
+                values="M0,20 C150,120 300,10 450,70 C600,130 750,30 900,80 C1050,130 1150,50 1200,30 L1200,220 C1050,120 900,230 750,176 C600,116 450,216 300,164 C150,110 50,190 0,216 Z;
+                        M0,70 C150,30 300,110 450,56 C600,20 750,120 900,66 C1050,26 1150,110 1200,76 L1200,170 C1050,224 900,124 750,184 C600,236 450,120 300,176 C150,220 50,130 0,166 Z;
+                        M0,20 C150,120 300,10 450,70 C600,130 750,30 900,80 C1050,130 1150,50 1200,30 L1200,220 C1050,120 900,230 750,176 C600,116 450,216 300,164 C150,110 50,190 0,216 Z"
+                dur="12s" 
+                repeatCount="indefinite" />
+        </path>
+    </svg>
+</div>

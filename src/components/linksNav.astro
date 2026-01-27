@@ -1,0 +1,28 @@
+---
+
+const links = [
+    { href: "#", text: "Home" },
+    { href: "#", text: "About" },
+    { href: "#", text: "Contact" },
+];
+
+import "../styles/base.css"
+
+---
+
+<nav id="menu" class="max-md:absolute max-md:top-0 max-md:left-0 max-md:overflow-hidden items-center justify-center max-md:h-full max-md:w-0 transition-[width] bg-white/50 backdrop-blur flex-col md:flex-row flex gap-8 text-gray-900 text-sm font-normal">
+        {
+            links.map((link) => (
+                <a class="hover:text-indigo-600" href={link.href}>
+                    {link.text}
+                </a>
+            ))
+        }
+        <button id="closeMenu" class="md:hidden text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </nav>
+    
