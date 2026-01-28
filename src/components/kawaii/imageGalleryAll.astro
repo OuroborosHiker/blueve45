@@ -1,0 +1,22 @@
+---
+import "../../styles/base.css"
+import ImageGallery from "../imageGallery.astro"
+import test1Image from "../../assets/images/test1.jpg";
+import test2Image from "../../assets/images/test2.jpg";
+---
+
+<ImageGallery 
+    prefix="all"
+    images={[
+        // Imágenes Kawaii
+        test1Image.src,
+        test1Image.src,
+        test1Image.src,
+        test1Image.src,
+        // Imágenes FanArts
+        test2Image.src,
+        test2Image.src,
+        test2Image.src,
+        test2Image.src
+    ]} 
+/>

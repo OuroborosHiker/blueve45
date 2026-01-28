@@ -1,0 +1,50 @@
+---
+// imageGallery.astro
+import "../styles/base.css"
+import ModalImage from "./modalImage.astro"
+
+export interface ImageGalleryProps {
+    images: string[];
+    prefix?: string;
+}
+
+const { images, prefix = 'gallery' } = Astro.props;
+const imageGalleryWidth = "w-80 h-100 object-cover rounded-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+---
+
+<div class="gallery-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full items-center justify-center mt-10 mx-auto gap-4" data-gallery-id={prefix}>
+    {images.map((image, index) => (
+        <img 
+            class={`gallery-trigger ${imageGalleryWidth}`} 
+            src={image} 
+            alt={`Gallery image ${index + 1}`}
+            data-image-src={image}
+        />
+    ))}
+</div>
+
+<ModalImage id={`${prefix}-modal`}>
+    <img 
+        id={`${prefix}-modal-image`}
+        src="" 
+        alt="Imagen ampliada"
+        class="max-w-full max-h-[80vh] object-contain rounded-lg"
+    />
+</ModalImage>
+
+<script define:vars={{ prefix }}>
+    const galleryContainer = document.querySelector(`[data-gallery-id="${prefix}"]`);
+    const galleryImages = galleryContainer?.querySelectorAll('.gallery-trigger');
+    const modal = document.getElementById(`${prefix}-modal`);
+    const modalImage = document.getElementById(`${prefix}-modal-image`);
+    
+    galleryImages?.forEach(img => {
+        img.addEventListener('click', () => {
+            const imageSrc = img.getAttribute('data-image-src');
+            if (imageSrc && modal && modalImage) {
+                modalImage.src = imageSrc;
+                modal.showModal();
+            }
+        });
+    });
+</script>
